@@ -187,7 +187,7 @@ body {
 
 .errors {
   position: relative;
-  top: -20px;
+  top: 20px;
 }
 @media only screen and (max-width: 600px) {
   .email-input {
