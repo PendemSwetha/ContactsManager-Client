@@ -6,7 +6,6 @@ import Register from "./components/Pages/Register";
 import { Navigate } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ContactPage from './components/ContactPages/ContactPage';
-// import Protected_route from './components/Pages/protected_route';
 function App() {
   const token=localStorage.getItem("token")
   console.log(token)
@@ -15,9 +14,10 @@ function App() {
       <BrowserRouter>
         <Provider>
           <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/register" element={<Register /> } />
-             <Route path="/contacts" element={token ? <ContactPage /> : <Navigate replace to={"/"} />} />
+            <Route path="/" element={token ? <ContactPage/> : <Login />} />
+            <Route path="/register" element={token ? <ContactPage/> : <Register /> } />
+            <Route path="/contacts" element={token ? <ContactPage /> : <Navigate replace to={"/"} />} />
+            <Route path="*" element={token ? <ContactPage/> : <h1>Page Not found</h1>} />
           </Routes>
         </Provider>
     </BrowserRouter>
