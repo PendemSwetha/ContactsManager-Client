@@ -1,11 +1,11 @@
 import React from 'react';
 import './index.css';
 import { Provider } from './components/axios/axioscontext';
-import Login from "./components/pages/Login";
+import Login from"./components/pages/Login";
 import Register from "./components/pages/Register";
 import { Navigate } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ContactPage from './components/ContactPages';
+import ContactPage from './components/ContactPages/ContactPage';
 function App() {
   const token=localStorage.getItem("token")
   console.log(token)
