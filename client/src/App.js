@@ -3,13 +3,13 @@ import './index.css';
 import { Provider } from './components/axios/axioscontext';
 import Login from"./components/Pages/Login";
 import Register from "./components/Pages/Register";
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ContactPage from './components/ContactPages/ContactPage';
-import Protected_route from './components/Pages/protected_route';
+// import Protected_route from './components/Pages/protected_route';
 function App() {
-//   const token=localStorage.getItem("token")
-//   console.log(token)
+  const token=localStorage.getItem("token")
+  console.log(token)
   return (
     <div>
       <BrowserRouter>
@@ -17,9 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register /> } />
-               {/* eslint-disable-next-line  */}
-               <Route element={<Protected_route/>}/>
-            <Route path="/contacts" element={<ContactPage /> } />
+             <Route path="/contacts" element={token ? <ContactPage /> : <Navigate replace to={"/"} />} />
           </Routes>
         </Provider>
     </BrowserRouter>
