@@ -9,7 +9,7 @@ import ContactPage from './components/ContactPages/ContactPage';
 import Protected_route from './components/Pages/protected_route';
 function App() {
 //   const token=localStorage.getItem("token")
-  console.log(token)
+//   console.log(token)
   return (
     <div>
       <BrowserRouter>
