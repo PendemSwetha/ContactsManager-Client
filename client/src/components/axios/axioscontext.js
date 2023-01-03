@@ -14,7 +14,7 @@ export const  Provider = (props) => {
 
   const userSignIn = (loginData) => {
     axios
-      .post("http://localhost:5000/login", loginData)
+      .post("https://contactsmanager-backend.onrender.com/login", loginData)
       .then((res) => {
         setToken(res.data.token)
         localStorage.setItem("token", res.data.token);
@@ -34,7 +34,7 @@ export const  Provider = (props) => {
   const userSignUp = (userData) => {
     try {
       axios
-        .post("http://localhost:5000/register", userData)
+        .post("https://contactsmanager-backend.onrender.com/register", userData)
         .then((res) => {
           nav("/");
           window.alert("Registration Successful");
@@ -51,10 +51,11 @@ export const  Provider = (props) => {
     },
   };
   //import contacts
+  //http://localhost:5000/api/v1/contacts"
   const postcontacts = async (contactdata) => {
     //console.log("Data-",contactdata)
     return await axios
-      .post("http://localhost:5000/api/v1/contacts",contactdata,config)
+      .post("https://contactsmanager-backend.onrender.com/api/v1/contacts",contactdata,config)
       .then((res) => console.log(res))
       .catch((err) => {
         console.log(err.response.data.message)
@@ -64,7 +65,7 @@ export const  Provider = (props) => {
   //getting contacts
   const fetchContacts = () => {
     axios
-      .get("http://localhost:5000/api/v1/contacts",config)
+      .get("https://contactsmanager-backend.onrender.com/api/v1/contacts",config)
       .then((res) => {
         //console.log(res.data.users);
       //   const data = res.data.message[0].Contacts;
@@ -104,7 +105,7 @@ setQuery(getSearch);
 //delete contacts------------------------------------------------
   const deletecontacts=(id)=>{
     axios
-      .delete(`http://localhost:5000/api/v1/contacts/${id}`,config)
+      .delete(`https://contactsmanager-backend.onrender.com/api/v1/contacts/${id}`,config)
       .then((res) => {
         console.log(res);
       })

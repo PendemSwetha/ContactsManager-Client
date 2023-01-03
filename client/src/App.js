@@ -3,21 +3,22 @@ import './index.css';
 import { Provider } from './components/axios/axioscontext';
 import Login from"./components/pages/Login";
 import Register from "./components/pages/Register";
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ContactPage from './components/ContactPages/ContactPage';
+import Protected_route from './components/pages/protected_route';
 function App() {
-  const token=localStorage.getItem("token")
+  // const token=localStorage.getItem("token")
   console.log(token)
   return (
     <div>
       <BrowserRouter>
         <Provider>
           <Routes>
-            <Route path="/" element={token ? <ContactPage/> : <Login />} />
-            <Route path="/register" element={token ? <ContactPage/> : <Register /> } />
-            <Route path="/contacts" element={token ? <ContactPage /> : <Navigate replace to={"/"} />} />
-            <Route path="*" element={token ? <ContactPage/> : <h1>Page Not found</h1>} />
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register /> } />
+            <Route element={<Protected_route/>}/>
+            <Route path="/contacts" element={<ContactPage />} />
           </Routes>
         </Provider>
     </BrowserRouter>
