@@ -7,7 +7,7 @@ import "./import.css";
 import deleteCom from "../../images/deleteCom.png"
 
 
-const importButton = () => {
+const ImportButton = () => {
     const { postcontacts, deletearr, deletecontacts, fetchContacts } = useContext(Context)
     const [button, setbutton] = useState(false)
     const [deletebutton, setdeletebutton] = useState(false);
@@ -155,4 +155,4 @@ const importButton = () => {
     )
 
 }
-export default importButton;
+export default ImportButton;
