@@ -4,7 +4,7 @@ import "./contactpage.css";
 import ToolTip from "./ToolTip";
 import { useContext, useState, useEffect } from "react";
 import { Context } from "../axios/axioscontext";
-import ImportButton from "./ImportButton";
+import ImportButton from "./importButton";
 import { useNavigate } from "react-router-dom";
 import ReactPaginate from 'react-paginate';
 
