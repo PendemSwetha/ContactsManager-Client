@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { parse } from "papaparse";
-import { Context } from "./axios/axioscontext";
-import tick from "../images/tick.png";
-import file from "../images/file.png";
+import { Context } from "../axios/axioscontext";
+import tick from "../../images/tick.png";
+import file from "../../images/file.png";
 import "./import.css";
-import deleteCom from "../images/deleteCom.png";
+import deleteCom from "../../images/deleteCom.png"
 
 
 const ImportButton = () => {

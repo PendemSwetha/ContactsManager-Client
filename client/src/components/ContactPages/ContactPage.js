@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./contactpage.css";
 import ToolTip from "./ToolTip";
 import { useContext, useState, useEffect } from "react";
-import { Context } from "./axios/axioscontext";
+import { Context } from "../axios/axioscontext";
 import ImportButton from "./ImportButton";
 import { useNavigate } from "react-router-dom";
 import ReactPaginate from 'react-paginate';
@@ -12,7 +12,7 @@ import ReactPaginate from 'react-paginate';
 
 function ContactPage() {
     
-    const { contacts, myFunction, query, setdeletearr } = useContext(Context)
+    const { contacts, myFunction, query, setdeletearr,setContacts } = useContext(Context)
     const [itemOffset, setItemOffset] = useState(0);
     const[currentItems, setCurrentItems]=useState(contacts)
     const [pageCount, setPageCount]=useState(0)
@@ -45,6 +45,12 @@ function ContactPage() {
             return [...prev, ...dummyarr]
         })
     }
+    function handleDeleteClick(_id) {
+        const removeItem = contacts.filter((contact) => {
+          return contact._id !== _id;
+        });
+        setContacts(removeItem);
+      }
 
     return (
         <div className="container-fluid ">
@@ -121,7 +127,7 @@ function ContactPage() {
                                             </ToolTip>
                                             <td> {udata.phoneNumber}</td>
                                             <td> {udata.country}</td>
-                                            <td> &nbsp;<i className="bi bi-pencil-fill"></i> &nbsp; &nbsp;<i className="bi bi-trash"></i> </td>
+                                            <td> &nbsp;<i className="bi bi-pencil-fill"></i> &nbsp; &nbsp;<i className="bi bi-trash" onClick={()=>handleDeleteClick(udata._id)}></i> </td>
                                         </tr>
                                     )
                                     }
